@@ -3,6 +3,8 @@ import Product from "./components/Product/Product";
 import BookList from "./components/favoriteBooks/favoriteBooks";
 import favouriteBooks from "./data/booksList";
 import Alert from "./components/Alert/Alert";
+import Counter from "./components/Counter/Counter";
+import SignUpForm from "./components/SignUpForm/SignUpForm";
 /* 
 ! descriptoin
 ? Product - Компоненти 
@@ -16,6 +18,8 @@ function App() {
   return (
     <>
       <h1>Hello React</h1>
+      <Counter />
+      <SignUpForm />
       <Product
         imgUrl="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640"
         name="Tacos With Lime"
