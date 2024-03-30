@@ -59,42 +59,51 @@ handleIncrement() {
 }
 */
 
-class Counter extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+class Counter extends Component {
+  /* constructor(props) ===> new way on the bottom
+      constructor(props) {
+        super(props);
+        this.state = {
       count: 0,
     };
-    // Change code below this line
-    this.increment = this.increment.bind(this);
-    this.decrement = this.decrement.bind(this);
-    this.reset = this.reset.bind(this);
-    // Change code above this line
   }
+  */
+
+  state = {
+    count: 0,
+  };
+
   // Change code below this line
-  increment() {
+  increment = () => {
     this.setState((state) => ({
-      // console.log('count state is:', state)
       count: state.count + 1,
     }));
-    }
+    /* розширений запис нижче!!! 
+    this.setState((prevState) => {
+      console.log("🚀 ~ Counter ~ prevState:", prevState);
 
+      return {
+        count: prevState.count + 1,
+      };
+    });
+    */
+  };
 
-  decrement() {
+  decrement = () => {
     this.setState((state) => ({
       count: state.count - 1,
     }));
-  }
-  reset() {
+  };
+  reset = () => {
     this.setState((state) => ({
       count: (state.count = 0),
     }));
-  }
+  };
   // Change code above this line
   render() {
     const { count } = this.state;
 
-      return (
+    return (
       <div>
         <button className="inc" onClick={this.increment}>
           Increment!
@@ -105,7 +114,7 @@ class Counter extends React.Component {
         <button className="reset" onClick={this.reset}>
           Reset
         </button>
-        <h1>Current Count: {count}</h1>
+        {<h1>Total: {count > 0 ? count : "0"}</h1>}
       </div>
     );
   }
