@@ -1,10 +1,10 @@
 // import LogoReact from "./components/LogoReact/LogoReact";
-import Product from "./components/Product/Product";
-import BookList from "./components/favoriteBooks/favoriteBooks";
+import Product from "./components/Product";
+import BookList from "./components/BookList";
 import favouriteBooks from "./data/booksList";
-import Alert from "./components/Alert/Alert";
-import Counter from "./components/Counter/Counter";
-import SignUpForm from "./components/SignUpForm/SignUpForm";
+import Alert from "./components/Alert";
+import Counter from "./components/Counter";
+import SignUpForm from "./components/SignUpForm";
 /* 
 ! descriptoin
 ? Product - Компоненти 

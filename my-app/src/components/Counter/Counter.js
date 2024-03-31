@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import ReactDOM from "react-dom";
 
 /* 
 class Counter extends Component {
@@ -99,7 +98,7 @@ class Counter extends Component {
       count: (state.count = 0),
     }));
   };
-  // Change code above this line
+
   render() {
     const { count } = this.state;
 
