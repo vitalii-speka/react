@@ -12,25 +12,26 @@ const INITIAL_STATE = {
 class SignUpForm extends Component {
   state = { ...INITIAL_STATE };
 
+  /* 
   // Для всіх інпутів створюємо один обробник
   // Розрізняти інпути будемо за атрибутом name
-  // handleChange = (evt) => {
-  //   const { name, value } = evt.target;
-  //   this.setState({ [name]: value });
-  // };
+  handleChange = (evt) => {
+    const { name, value } = evt.target;
+    this.setState({ [name]: value });
+  };
+ */
   handleChange = (evt) => {
     const { name, value, type, checked } = evt.target;
-    // Якщо тип елемента – checkbox, беремо значення checked,
-    // в іншому випадку – value
     this.setState({ [name]: type === "checkbox" ? checked : value });
   };
 
   handleSubmit = (evt) => {
     evt.preventDefault();
-    const { login, email, password } = this.state;
-    console.log(`Login: ${login}, Email: ${email}, Password: ${password}`);
-    // this.props.onSubmit({ ...this.state });   - don't work!!!!
-    console.log("🚀 ~ SignUpForm ~ evt:", evt);
+    const { login, email, password, agreed } = this.state;
+    console.log(
+      `Login: ${login}, Email: ${email}, Password: ${password}, Agreed: ${agreed}`
+    );
+    // this.props.onSubmit({ ...this.state }); //- don't work!!!!
     this.reset();
   };
 
@@ -77,6 +78,7 @@ class SignUpForm extends Component {
           Agree to terms
           <input
             type="checkbox"
+            name="agreed"
             checked={agreed}
             onChange={this.handleChange}
           />
