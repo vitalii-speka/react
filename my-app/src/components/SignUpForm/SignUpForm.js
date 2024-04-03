@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+// import data from "../../API/axios";
 // Виносимо об'єкт із примітивами в константу, щоб було зручно скидати.
 // Не можна використовувати, якщо в якійсь властивості стану зберігається складний тип.
 const INITIAL_STATE = {
@@ -11,6 +11,25 @@ const INITIAL_STATE = {
 
 class SignUpForm extends Component {
   state = { ...INITIAL_STATE };
+
+  componentDidMount() {
+    // console.log("componentDidMount");
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState === this.state) {
+      console.log(
+        "🚀 ~ SignUpForm ~ componentDidUpdate ~ prevState:",
+        prevState
+      );
+    }
+    if (prevProps === this.props) {
+      console.log(
+        "🚀 ~ SignUpForm ~ componentDidUpdate ~ prevProps:",
+        prevProps
+      );
+    }
+  }
 
   /* 
   // Для всіх інпутів створюємо один обробник

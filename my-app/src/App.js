@@ -5,6 +5,7 @@ import favouriteBooks from "./data/booksList";
 import Alert from "./components/Alert";
 import Counter from "./components/Counter";
 import SignUpForm from "./components/SignUpForm";
+import Api from "./API/axios";
 /* 
 ! descriptoin
 ? Product - Компоненти 
@@ -18,6 +19,7 @@ function App() {
   return (
     <>
       <h1>Hello React</h1>
+      <Api />
       <Counter />
       <SignUpForm />
       <Product
