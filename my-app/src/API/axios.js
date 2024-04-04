@@ -34,8 +34,8 @@ class Api extends Component {
 
   async componentDidMount() {
     // const response = await axios.get("/search?query=react");
-    const response2 = await axios.get("/users/current");
-    console.log("🚀 ~ Api ~ componentDidMount ~ response2:", response2);
+    // const response2 = await axios.get("/users/current");
+    // console.log("🚀 ~ Api ~ componentDidMount ~ response2:", response2);
     // console.log("🚀 ~ Api ~ componentDidMount ~ response:", response);
     // this.setState({ articles: response.data.hits });
   }

@@ -6,6 +6,7 @@ import Alert from "./components/Alert";
 import Counter from "./components/Counter";
 import SignUpForm from "./components/SignUpForm";
 import Api from "./API/axios";
+import UserMenu from "./components/UserMenu/UserMenu";
 /* 
 ! descriptoin
 ? Product - Компоненти 
@@ -19,6 +20,7 @@ function App() {
   return (
     <>
       <h1>Hello React</h1>
+      <UserMenu name={"Vitalii"} />
       <Api />
       <Counter />
       <SignUpForm />
