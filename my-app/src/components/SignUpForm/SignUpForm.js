@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function SignUpForm() {
-  const [login, setLogin] = useState("");
-  const [email, setEmail] = useState("");
+  // const [login, setLogin] = useState("");
+  const [login, setLogin] = useState(() => {
+    return JSON.parse(window.localStorage.getItem("login")) ?? "";
+  });
+  const [email, setEmail] = useState(() => {
+    return JSON.parse(window.localStorage.getItem("email")) ?? "";
+  });
   const [password, setPassword] = useState("");
   const [agreed, setAgreed] = useState(false);
 
@@ -46,6 +51,14 @@ export default function SignUpForm() {
     setPassword("");
     setAgreed(false);
   };
+
+  useEffect(() => {
+    window.localStorage.setItem("login", JSON.stringify(login));
+  }, [login]);
+
+  useEffect(() => {
+    window.localStorage.setItem("email", JSON.stringify(email));
+  }, [email]);
 
   return (
     <form onSubmit={handleSubmit}>
