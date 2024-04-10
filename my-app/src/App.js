@@ -3,11 +3,12 @@
 // import BookList from "./components/BookList";
 // import favouriteBooks from "./data/booksList";
 // import Alert from "./components/Alert";
-// import Counter from "./components/Counter";
+import Counter from "./components/Counter";
 // import SignUpForm from "./components/SignUpForm";
 // import Api from "./API/axios";
 // import UserMenu from "./components/UserMenu/UserMenu";
-import UseRef from "./components/UseRef";
+// import UseRef from "./components/UseRef";
+// import Player from "./components/Player";
 
 /* 
 ! descriptoin
@@ -18,14 +19,18 @@ TODO exp
 
 */
 
+
+
 function App() {
+
   return (
     <>
       <h1>Hello React</h1>
-      <UseRef />
+      {/* <UseRef /> */}
+      {/* <Player source="http://media.w3.org/2010/05/sintel/trailer.mp4" /> */}
       {/* <UserMenu name={"Vitalii"} /> */}
       {/* <Api /> */}
-      {/* <Counter /> */}
+      <Counter />
       {/* <SignUpForm /> */}
       {/* <>
         <Product

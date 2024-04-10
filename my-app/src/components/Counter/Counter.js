@@ -1,4 +1,89 @@
-import React, { Component } from "react";
+import { useState, useEffect } from "react";
+
+export default function Counter() {
+  const [count, setCount] = useState(0);
+
+  const increment = () => {
+    setCount((state) => state + 1);
+  };
+  const decrement = () => {
+    setCount((state) => state - 1);
+  };
+  const reset = () => {
+    setCount(0);
+  };
+
+  useEffect(() => {
+    console.log("first");
+    return () => {
+      document.title = `Total clicks ${count}`;
+    };
+  }, [count]);
+
+  return (
+    <div>
+      <button className="inc" onClick={increment}>
+        Increment!
+      </button>
+      <button className="dec" onClick={decrement}>
+        Decrement!
+      </button>
+      <button className="reset" onClick={reset}>
+        Reset
+      </button>
+      {<h1>Total: {count > 0 ? count : "0"}</h1>}
+    </div>
+  );
+}
+
+/* class Counter
+
+class OldCounter extends Component {
+  state = {
+    count: 0,
+  };
+
+  // Change code below this line
+  increment = () => {
+    this.setState((state) => ({
+      count: state.count + 1,
+    }));
+   
+  };
+
+  decrement = () => {
+    this.setState((state) => ({
+      count: state.count - 1,
+    }));
+  };
+  reset = () => {
+    this.setState((state) => ({
+      count: (state.count = 0),
+    }));
+  };
+
+  render() {
+    const { count } = this.state;
+
+    return (
+      <div>
+        <button className="inc" onClick={this.increment}>
+          Increment!
+        </button>
+        <button className="dec" onClick={this.decrement}>
+          Decrement!
+        </button>
+        <button className="reset" onClick={this.reset}>
+          Reset
+        </button>
+        {<h1>Total: {count > 0 ? count : "0"}</h1>}
+      </div>
+    );
+  }
+}
+
+export default Counter;
+*/
 
 /* 
 class Counter extends Component {
@@ -57,66 +142,3 @@ handleIncrement() {
   }
 }
 */
-
-class Counter extends Component {
-  /* constructor(props) ===> new way on the bottom
-      constructor(props) {
-        super(props);
-        this.state = {
-      count: 0,
-    };
-  }
-  */
-
-  state = {
-    count: 0,
-  };
-
-  // Change code below this line
-  increment = () => {
-    this.setState((state) => ({
-      count: state.count + 1,
-    }));
-    /* розширений запис нижче!!! 
-    this.setState((prevState) => {
-      console.log("🚀 ~ Counter ~ prevState:", prevState);
-
-      return {
-        count: prevState.count + 1,
-      };
-    });
-    */
-  };
-
-  decrement = () => {
-    this.setState((state) => ({
-      count: state.count - 1,
-    }));
-  };
-  reset = () => {
-    this.setState((state) => ({
-      count: (state.count = 0),
-    }));
-  };
-
-  render() {
-    const { count } = this.state;
-
-    return (
-      <div>
-        <button className="inc" onClick={this.increment}>
-          Increment!
-        </button>
-        <button className="dec" onClick={this.decrement}>
-          Decrement!
-        </button>
-        <button className="reset" onClick={this.reset}>
-          Reset
-        </button>
-        {<h1>Total: {count > 0 ? count : "0"}</h1>}
-      </div>
-    );
-  }
-}
-
-export default Counter;
