@@ -1,14 +1,17 @@
-// import LogoReact from "./components/LogoReact/LogoReact";
-// import Product from "./components/Product";
-// import BookList from "./components/BookList";
-// import favouriteBooks from "./data/booksList";
-// import Alert from "./components/Alert";
-// import Counter from "./components/Counter";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import ComponentsPage from "./pages/ComponentsPage";
+import Products from "./pages/Products";
+import ProductDetails from "./pages/ProductDetails";
+import NotFound from "./pages/NotFound";
+
+import SharedLayout from "./components/SharedLayout";
 import SignUpForm from "./components/SignUpForm";
-// import Api from "./API/axios";
-// import UserMenu from "./components/UserMenu/UserMenu";
-// import UseRef from "./components/UseRef";
-// import Player from "./components/Player";
+import Product from "./components/Product";
+import BookList from "./components/BookList";
+import UserMenu from "./components/UserMenu/UserMenu";
+
+import favouriteBooks from "./data/booksList";
 
 /* 
 ! descriptoin
@@ -19,47 +22,36 @@ TODO exp
 
 */
 
-
-
 function App() {
-
   return (
     <>
-      <h1>Hello React</h1>
-      {/* <UseRef /> */}
-      {/* <Player source="http://media.w3.org/2010/05/sintel/trailer.mp4" /> */}
-      {/* <UserMenu name={"Vitalii"} /> */}
-      {/* <Api /> */}
-      {/* <Counter /> */}
-      <SignUpForm />
-      {/* <>
-        <Product
-          imgUrl="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640"
-          name="Tacos With Lime"
-          price={10.99}
-        />
-        <Product
-          imgUrl="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?dpr=2&h=480&w=640"
-          name="Fries and Burger"
-          price={14.29}
-        />
-      </> */}
-      {/* <BookList books={favouriteBooks} /> */}
-      {/* <LogoReact /> */}
-      {/* <>
-        <Alert variant="info">
-          Would you like to browse our recommended products?
-        </Alert>
-        <Alert variant="error">
-          There was an error during your last transaction
-        </Alert>
-        <Alert variant="success">
-          Payment received, thank you for your purchase
-        </Alert>
-        <Alert variant="warning">
-          Please update your profile contact information
-        </Alert>
-      </> */}
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<Home />} />
+          <Route path="/components-page" element={<ComponentsPage />}>
+            <Route path="sing-up-form" element={<SignUpForm />} />
+            <Route
+              path="product"
+              element={
+                <Product
+                  imgUrl="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640"
+                  name="Tacos With Lime"
+                  price={10.99}
+                />
+              }
+            />
+            <Route
+              path="bookList"
+              element={<BookList books={favouriteBooks} />}
+            />
+            <Route path="usermenu" element={<UserMenu name={"Vitalii"} />} />
+            <Route />
+          </Route>
+          <Route path="products" element={<Products />} />
+          <Route path="products/:id" element={<ProductDetails />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
     </>
   );
 }

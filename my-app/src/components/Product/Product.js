@@ -1,13 +1,13 @@
 import React from "react";
 
-
-const Product = ({ imgUrl, name, price }) => (
-  <div>
+const Product = ({ imgUrl, name = "", price = "" }) => (
+  <>
     <img src={imgUrl} alt={name} width="640" />
-    <h2>{name}</h2>
-    <p>price: {price < 9 ? "Few left" : price}$</p>
-    <button type="button">Add to cart</button>
-  </div>
+    {/* <p>price: {(price = "null" ? "" : price)}$</p> */}
+
+    {name && <p> Product: {name}</p>}
+    {price && <p> Price: {price}</p>}
+  </>
 );
 
 export default Product;
