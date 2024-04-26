@@ -1,9 +1,8 @@
-import { ProductList } from "../components/ProductList/ProductList";
+import ProductList from "../components/ProductList";
 import { getProducts } from "../data/fakeAPI";
 
-export const Products = () => {
+const Products = () => {
   const products = getProducts();
-  console.log("🚀 ~ Products ~ products:", products);
   return (
     <main>
       <ProductList products={products} />
@@ -11,4 +10,4 @@ export const Products = () => {
   );
 };
 
-// export default Products;
+export default Products;

@@ -1,12 +1,12 @@
-import Product from "../components/Product";
+import Item from "../components/Item";
 
-function Home() {
+const Home = () => {
   return (
     <>
-      <h1>Home Page</h1>
-      <Product imgUrl="https://repository-images.githubusercontent.com/37153337/9d0a6780-394a-11eb-9fd1-6296a684b124" />
+      <h2>Home Page</h2>
+      <Item imgUrl="https://repository-images.githubusercontent.com/37153337/9d0a6780-394a-11eb-9fd1-6296a684b124" />
     </>
   );
-}
+};
 
 export default Home;

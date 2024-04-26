@@ -7,7 +7,7 @@ import NotFound from "./pages/NotFound";
 
 import SharedLayout from "./components/SharedLayout";
 import SignUpForm from "./components/SignUpForm";
-import Product from "./components/Product";
+import Item from "./components/Item";
 import BookList from "./components/BookList";
 import UserMenu from "./components/UserMenu/UserMenu";
 
@@ -31,9 +31,9 @@ function App() {
           <Route path="/components-page" element={<ComponentsPage />}>
             <Route path="sing-up-form" element={<SignUpForm />} />
             <Route
-              path="product"
+              path="item"
               element={
-                <Product
+                <Item
                   imgUrl="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640"
                   name="Tacos With Lime"
                   price={10.99}

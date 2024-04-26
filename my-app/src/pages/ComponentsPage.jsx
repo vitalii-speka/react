@@ -19,7 +19,7 @@ function ComponentsPage() {
           <Link to="sing-up-form">Sign Up Form</Link>
         </li>
         <li>
-          <Link to="product">Products</Link>
+          <Link to="item">Item</Link>
         </li>
         <li>
           <Link to="bookList">BookList</Link>

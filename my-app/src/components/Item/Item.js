@@ -1,6 +1,6 @@
 import React from "react";
 
-const Product = ({ imgUrl, name = "", price = "" }) => (
+const Item = ({ imgUrl, name = "", price = "" }) => (
   <>
     <img src={imgUrl} alt={name} width="640" />
     {/* <p>price: {(price = "null" ? "" : price)}$</p> */}
@@ -10,4 +10,4 @@ const Product = ({ imgUrl, name = "", price = "" }) => (
   </>
 );
 
-export default Product;
+export default Item;
