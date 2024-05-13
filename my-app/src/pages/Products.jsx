@@ -3,12 +3,14 @@ import ProductList from "../components/ProductList";
 import SearchBox from "../components/SearchBox";
 import { getProducts } from "../data/fakeAPI";
 
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
+
 const Products = () => {
   const products = getProducts();
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log("🚀 ~ Products ~ searchParams:", searchParams)
   const productName = searchParams.get("name") ?? "";
-  console.log("🚀 ~ Products ~ productName:", productName)
 
   const visibleProducts = products.filter((product) =>
     product.name.toLowerCase().includes(productName.toLowerCase())
@@ -18,6 +20,13 @@ const Products = () => {
     const nextParams = name !== "" ? { name } : {};
     setSearchParams(nextParams);
   };
+
+  const location = useLocation();
+
+  useEffect(() => {
+    console.log("🚀 ~ useEffect ~ location:", location);
+    // Analytics.send(location);
+  }, [location]);
 
   return (
     <main>
