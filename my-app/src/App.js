@@ -1,9 +1,7 @@
+import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import ComponentsPage from "./pages/ComponentsPage";
-import Products from "./pages/Products";
-import ProductDetails from "./pages/ProductDetails";
-import NotFound from "./pages/NotFound";
+
+
 
 import SharedLayout from "./components/SharedLayout";
 import SignUpForm from "./components/SignUpForm";
@@ -13,7 +11,21 @@ import UserMenu from "./components/UserMenu/UserMenu";
 
 import favouriteBooks from "./data/booksList";
 
-/* 
+const Home = lazy(() => import("./pages/Home"));
+const ComponentsPage = lazy(() => import("./pages/ComponentsPage"));
+const Products = lazy(() => import("./pages/Products"));
+const ProductDetails = lazy(() => import("./pages/ProductDetails"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+
+/* import befor lazy()
+import Home from "./pages/Home";
+import ComponentsPage from "./pages/ComponentsPage";
+import Products from "./pages/Products";
+import ProductDetails from "./pages/ProductDetails";
+import NotFound from "./pages/NotFound";
+*/
+
+/*  notificatiom
 ! descriptoin
 ? Product - Компоненти 
 ? BookList - Рендер за умовою 
