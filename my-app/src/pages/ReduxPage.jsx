@@ -7,7 +7,6 @@ const ReduxPage = () => {
   return (
     <>
       <Layout>
-        <h3>Test page</h3>
         <AppBar />
         <TaskForm />
         <TaskList />
