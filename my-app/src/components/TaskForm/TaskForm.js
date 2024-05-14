@@ -14,6 +14,10 @@ export const TaskForm = () => {
     const form = event.target;
     // Викликаємо генератор екшену та передаємо текст завдання для поля payload
     // Відправляємо результат – екшен створення завдання
+    if (form.elements.text.value === "") {
+      alert("you must wrine text task");
+      return;
+    }
     dispatch(addTask(form.elements.text.value));
     form.reset();
   };
