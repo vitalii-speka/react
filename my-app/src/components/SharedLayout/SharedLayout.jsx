@@ -23,6 +23,9 @@ const SharedLayout = () => {
           <li>
             <Link to="/products">Products</Link>
           </li>
+          <li>
+            <Link to="/redux-page">Redux page</Link>
+          </li>
         </nav>
       </Header>
       <Suspense fallback={<div>Loading page (SharedLayout) ...</div>}>

@@ -1,18 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { UserProvider } from "./components/UserProvider/UserProvider";
+// import { UserProvider } from "./components/UserProvider/UserProvider";
 import { BrowserRouter } from "react-router-dom";
+
+/*UserProvider - some exemple state control */
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <UserProvider>
+      <Provider store={store}>
+        {/* <UserProvider> */}
         <App />
-      </UserProvider>
+        {/* </UserProvider> */}
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>
 );
