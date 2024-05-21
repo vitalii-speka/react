@@ -9,8 +9,7 @@ export const store = createStore(rootReducer, enhancer);
 
 //=============== After ========================
 import { configureStore } from "@reduxjs/toolkit";
-import { tasksReducer } from "./tasksSlice";
-import { filtersReducer } from "./filtersSlice";
+import { tasksReducer, filtersReducer } from "./reducer";
 
 export const store = configureStore({
   reducer: {
