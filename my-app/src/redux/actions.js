@@ -20,8 +20,6 @@ export const toggleCompleted = createAction("tasks/toggleCompleted");
 
 export const setStatusFilter = createAction("filters/setStatusFilter");
 
-
-
 /*  =============== Before ========================
 import { nanoid } from "nanoid";
 
