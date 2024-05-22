@@ -4,7 +4,6 @@ import { setStatusFilter } from "../../redux/actions";
 import { Button } from "../Button/Button";
 // Імпортуємо об'єкт значень фільтра
 import { statusFilters } from "../../redux/constants";
-// import { getStatusFilter } from "../../redux/selectors";
 import css from "./StatusFilter.module.css";
 
 export const StatusFilter = () => {

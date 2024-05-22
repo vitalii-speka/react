@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 // import { store } from "./redux/store";
-import store  from "./redux/store";
+import { store, persistor } from "./redux/store";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -16,9 +17,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        {/* <UserProvider> */}
-        <App />
-        {/* </UserProvider> */}
+        <PersistGate loading={null} persistor={persistor}>
+          {/* <UserProvider> */}
+          <App />
+          {/* </UserProvider> */}
+        </PersistGate>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>

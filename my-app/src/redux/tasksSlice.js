@@ -1,19 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { nanoid } from "nanoid";
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
-const loadState = () => {
-  try {
-    const serializedState = localStorage.getItem("reduxState");
-    if (serializedState === null) {
-      return undefined;
-    }
-    return JSON.parse(serializedState);
-  } catch (err) {
-    console.error("Could not load state", err);
-    return undefined;
-  }
-};
-
+// const tasksInitialState = [
+//   {
+//     tasks: {},
+//   },
+// ];
 const tasksInitialState = [];
 
 const tasksSlice = createSlice({
@@ -49,6 +43,17 @@ const tasksSlice = createSlice({
   },
 });
 
+const persistConfig = {
+  key: "tasks",
+  storage,
+};
+
+const tasksSliceReducer = tasksSlice.reducer;
+export const tasksReducer = persistReducer(persistConfig, tasksSliceReducer);
+
 // Експортуємо генератори екшенів та редюсер
 export const { addTask, deleteTask, toggleCompleted } = tasksSlice.actions;
-export const tasksReducer = tasksSlice.reducer;
+// export const tasksReducer = tasksSlice.reducer;
+
+//selecrtors
+export const getTasks = state => state.tasks;
