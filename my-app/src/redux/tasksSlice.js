@@ -3,12 +3,10 @@ import { nanoid } from "nanoid";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-// const tasksInitialState = [
-//   {
-//     tasks: {},
-//   },
-// ];
 const tasksInitialState = [];
+// const tasksInitialState = {
+//   tasks: [],
+// };
 
 const tasksSlice = createSlice({
   name: "tasks",
@@ -48,12 +46,14 @@ const persistConfig = {
   storage,
 };
 
-const tasksSliceReducer = tasksSlice.reducer;
-export const tasksReducer = persistReducer(persistConfig, tasksSliceReducer);
+// const tasksSliceReducer = tasksSlice.reducer;
+// export const tasksReducer = persistReducer(persistConfig, tasksSlice.reducer);
 
 // Експортуємо генератори екшенів та редюсер
 export const { addTask, deleteTask, toggleCompleted } = tasksSlice.actions;
-// export const tasksReducer = tasksSlice.reducer;
+export const tasksReducer = tasksSlice.reducer;
 
 //selecrtors
-export const getTasks = state => state.tasks;
+export const getTasks = state => {
+  return state.tasks;
+};

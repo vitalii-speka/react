@@ -54,16 +54,16 @@
 */
 
 //=============== After ========================
-import { createReducer } from "@reduxjs/toolkit";
-import { statusFilters } from "./constants";
-import {
-  addTask,
-  deleteTask,
-  toggleCompleted,
-  setStatusFilter,
-} from "./actions";
+// import { createReducer } from "@reduxjs/toolkit";
+// import { statusFilters } from "./constants";
+// import {
+//   addTask,
+//   deleteTask,
+//   toggleCompleted,
+//   // setStatusFilter,
+// } from "./actions";
 
-const tasksInitialState = [];
+// const tasksInitialState = [];
 
 /* =============== Before ========================
     export const tasksReducer = (state = tasksInitialState, action) => {
@@ -89,26 +89,29 @@ const tasksInitialState = [];
 */
 
 //=============== After ========================
-// export const tasksReducer = createReducer(tasksInitialState, builder => {
-//   builder
-//     .addCase(addTask, (state, action) => {
-//       return [...state, action.payload];
-//     })
-//     .addCase(deleteTask, (state, action) => {
-//       return state.filter(task => task.id !== action.payload);
-//     })
-//     .addCase(toggleCompleted, (state, action) => {
-//       return state.map(task => {
-//         if (task.id !== action.payload) {
-//           return task;
-//         }
-//         return {
-//           ...task,
-//           completed: !task.completed,
-//         };
+// export const tasksReducer = createReducer(
+//   tasksInitialState,
+//   builder => {
+//     builder
+//       .addCase(addTask, (state, action) => {
+//         return [...state, action.payload];
+//       })
+//       .addCase(deleteTask, (state, action) => {
+//         return state.filter(task => task.id !== action.payload);
+//       })
+//       .addCase(toggleCompleted, (state, action) => {
+//         return state.map(task => {
+//           if (task.id !== action.payload) {
+//             return task;
+//           }
+//           return {
+//             ...task,
+//             completed: !task.completed,
+//           };
+//         });
 //       });
-//     });
-// });
+//   }
+// );
 
 // const filtersInitialState = {
 //   status: statusFilters.all,

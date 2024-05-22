@@ -21,16 +21,14 @@ export const TaskList = () => {
   const tasks = useSelector(getTasks);
   const statusFilter = useSelector(getStatusFilter);
   const visibleTasks = getVisibleTasks(tasks, statusFilter);
-  console.log("🚀 ~ TaskList ~ visibleTasks:", visibleTasks);
 
   return (
     <ul className={css.list}>
-      <p>Whats wrong???</p>
-      {/* {visibleTasks.map(task => (
+      {visibleTasks.map(task => (
         <li className={css.listItem} key={task.id}>
           <Task task={task} />
         </li>
-      ))} */}
+      ))}
     </ul>
   );
 };
