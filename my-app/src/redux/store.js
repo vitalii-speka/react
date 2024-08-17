@@ -20,14 +20,23 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
+  persistReducer,
 } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import { authReducer } from "./auth/slice";
 import { tasksReducer } from "./tasksSlice";
 import { filtersReducer } from "./filtersSlice";
 
-
+// Persisting token field from auth slice to localstorage
+const authPersistConfig = {
+  key: "auth",
+  storage,
+  whitelist: ["token"],
+};
 
 export const store = configureStore({
   reducer: {
+    auth: persistReducer(authPersistConfig, authReducer),
     tasks: tasksReducer,
     filters: filtersReducer,
   },
@@ -37,6 +46,7 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
+  devTools: process.env.NODE_ENV === "development",
 });
 
 export const persistor = persistStore(store);
