@@ -15,6 +15,7 @@ const Products = lazy(() => import("./pages/Products"));
 const ProductDetails = lazy(() => import("./pages/ProductDetails"));
 const ReduxPage = lazy(() => import("./pages/ReduxPage"));
 const RegisterPage = lazy(() => import("./pages/Register"));
+const LoginPage = lazy(() => import("./pages/Login"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 /* import befor lazy()
@@ -63,6 +64,7 @@ function App() {
           <Route path="products/:id" element={<ProductDetails />} />
           <Route path="redux-page" element={<ReduxPage />} />
           <Route path="register" element={<RegisterPage />} />
+          <Route path="login" element={<LoginPage />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
