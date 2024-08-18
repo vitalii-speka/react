@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { nanoid } from "nanoid";
-import { persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+// import { persistReducer } from "redux-persist";
+// import storage from "redux-persist/lib/storage";
 
 const tasksInitialState = [];
 // const tasksInitialState = {
@@ -41,10 +41,10 @@ const tasksSlice = createSlice({
   },
 });
 
-const persistConfig = {
-  key: "tasks",
-  storage,
-};
+// const persistConfig = {
+//   key: "tasks",
+//   storage,
+// };
 
 // const tasksSliceReducer = tasksSlice.reducer;
 // export const tasksReducer = persistReducer(persistConfig, tasksSlice.reducer);

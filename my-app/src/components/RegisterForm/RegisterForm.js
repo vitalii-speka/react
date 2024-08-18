@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { register } from "../../redux/auth/operations"; 
+import { register } from "../../redux/auth/operations";
 import css from "./RegisterForm.module.css";
 
 export const RegisterForm = () => {
@@ -13,6 +13,7 @@ export const RegisterForm = () => {
         name: form.elements.name.value,
         email: form.elements.email.value,
         password: form.elements.password.value,
+        avatar: "https://picsum.photos/800", // avatar only for fakeapi.platzi.com/
       })
     );
     form.reset();

@@ -1,7 +1,8 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-axios.defaults.baseURL = "https://goit-task-manager.herokuapp.com/";
+// axios.defaults.baseURL = "https://goit-task-manager.herokuapp.com/";
+axios.defaults.baseURL = "https://api.escuelajs.co/api/v1/";
 
 // Utility to add JWT
 const setAuthHeader = token => {
@@ -17,15 +18,22 @@ const clearAuthHeader = () => {
  * POST @ /users/signup
  * body: { name, email, password }
  */
+
 export const register = createAsyncThunk(
-  "auth/register",
+  // "auth/register", -- GoIT API
+  "users",
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post("/users/signup", credentials);
+      const res = await axios.post("/users/", credentials);
       // After successful registration, add the token to the HTTP header
       setAuthHeader(res.data.token);
+      console.log("🚀 ~ res.data:", res.data);
       return res.data;
     } catch (error) {
+      console.log(
+        "🚀 ~ error.response.data.message:",
+        error.response.data.message
+      );
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -34,14 +42,24 @@ export const register = createAsyncThunk(
 /*
  * POST @ /users/login
  * body: { email, password }
+ *
+ * [POST] https://api.escuelajs.co/api/v1/auth/login
+ *# Body
+ *{
+ *  "email": "john@mail.com",
+ *  "password": "changeme"
+ *}
+ *
  */
 export const logIn = createAsyncThunk(
   "auth/login",
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post("/users/login", credentials);
+      // const res = await axios.post("/users/login", credentials); _ GoIT
+      const res = await axios.post("/auth/login", credentials);
       // After successful login, add the token to the HTTP header
       setAuthHeader(res.data.token);
+      console.log(res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -62,6 +80,21 @@ export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+/*
+ * logout for https://api.escuelajs.co/api/v1/auth/login
+ */
+// export const logOutButton = text => {};
+export const logOutButton = createAsyncThunk(
+  "auth/logoutButton",
+  (_, thunkAPI) => {
+    try {
+      // After a successful logout, remove the token from the HTTP header
+      clearAuthHeader();
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
 /*
  * GET @ /users/current
