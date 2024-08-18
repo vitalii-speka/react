@@ -78,7 +78,7 @@ function App() {
           />
           <Route path="products/:id" element={<ProductDetails />} />
           <Route
-            path="redux-page"
+          path="redux-page"
             element={
               <PrivateRoute redirectTo="/login" component={<ReduxPage />} />
             }
