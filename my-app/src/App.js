@@ -9,6 +9,7 @@ import UserMenu from "./components/UserMenu/UserMenu";
 
 import favouriteBooks from "./data/booksList";
 import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute";
+import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
 
 const Home = lazy(() => import("./pages/Home"));
 const ComponentsPage = lazy(() => import("./pages/ComponentsPage"));
@@ -42,7 +43,15 @@ function App() {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
-          <Route path="/components-page" element={<ComponentsPage />}>
+          <Route
+            path="/components-page"
+            element={
+              <PrivateRoute
+                redirectTo="/login"
+                component={<ComponentsPage />}
+              />
+            }
+          >
             <Route path="sing-up-form" element={<SignUpForm />} />
             <Route
               path="item"
@@ -61,9 +70,19 @@ function App() {
             <Route path="usermenu" element={<UserMenu name={"Vitalii"} />} />
             <Route />
           </Route>
-          <Route path="products" element={<Products />} />
+          <Route
+            path="products"
+            element={
+              <PrivateRoute redirectTo="/login" component={<Products />} />
+            }
+          />
           <Route path="products/:id" element={<ProductDetails />} />
-          <Route path="redux-page" element={<ReduxPage />} />
+          <Route
+            path="redux-page"
+            element={
+              <PrivateRoute redirectTo="/login" component={<ReduxPage />} />
+            }
+          />
           {/* <Route path="register" element={<RegisterPage />} /> */}
           {/* <Route path="login" element={<LoginPage />} /> */}
           <Route
